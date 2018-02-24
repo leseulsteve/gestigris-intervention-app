@@ -1,0 +1,21 @@
+{
+  "generator-ngx-rocket": {
+    "version": "3.2.1",
+    "props": {
+      "appName": "gestigris-intervention-app",
+      "target": [
+        "web",
+        "cordova"
+      ],
+      "pwa": true,
+      "mobile": [
+        "ios",
+        "android"
+      ],
+      "ui": "ionic",
+      "auth": true,
+      "projectName": "gestigris-intervention-app",
+      "packageManager": "npm"
+    }
+  }
+}
