@@ -4,16 +4,23 @@ import { IonicModule } from 'ionic-angular';
 
 import { LoaderComponent } from './loader/loader.component';
 
+import { EtablissementModule } from './etablissement/etablissement.module';
+import { InterventionModule } from './intervention/intervention.module';
+
 @NgModule({
   imports: [
     IonicModule,
-    CommonModule
+    CommonModule,
+    EtablissementModule,
+    InterventionModule
   ],
   declarations: [
     LoaderComponent
   ],
   exports: [
-    LoaderComponent
+    LoaderComponent,
+    EtablissementModule,
+    InterventionModule
   ]
 })
 export class SharedModule { }
