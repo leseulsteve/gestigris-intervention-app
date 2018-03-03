@@ -1,9 +1,21 @@
 <ion-card>
-  <img src="http://content.stamen.com/files/just_the_streets/soho_lines.jpg" />
-  <div class="card-title">{{ etablissement.description }}</div>
-  <div class="card-subtitle">{{ (etablissement.interventions$ | async).length }}</div>
+  <app-etablissement-card-header [etablissement]="etablissement"></app-etablissement-card-header>
   <ion-list>
-    <button ion-item>
+    <ion-item-sliding *ngFor="let intervention of etablissement.interventions$ | async">
+      <ion-item>
+        <ion-icon name="text"></ion-icon>
+        <span>{{ intervention.date | date:'medium' }} </span>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+          <ion-icon name="heart"></ion-icon>
+        </button>
+        <button ion-button color="primary">
+          <ion-icon name="close-circle"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <!-- <button ion-item>
       <ion-icon name="cart" item-start></ion-icon>
       Shopping
     </button>
@@ -31,7 +43,7 @@
     <button ion-item>
       <ion-icon name="planet" item-start></ion-icon>
       Space
-    </button>
+    </button> -->
 
   </ion-list>
 </ion-card>

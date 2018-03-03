@@ -15,9 +15,12 @@ export class EtablissementService {
 
   constructor(private interventionService: InterventionService) {
 
-    this.etablissements$ = of([
-      { _id: '1', description: 'École secondaire de Neufchâtel', interventions$: this.getInterventions('1') }
-    ]);
+    this.etablissements$ = of([{
+      _id: '1', 
+      description: 'École secondaire de Neufchâtel',
+      tags: ['Secondaire', 'Hotdog'],
+      interventions$: this.getInterventions('1'),
+    }]);
   }
 
   private getInterventions(etablissementId: string): Observable<Intervention[]> {

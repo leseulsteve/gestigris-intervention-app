@@ -12,8 +12,10 @@ export class InterventionService {
 
   constructor() {
     this.interventions$ = of([
-
-      { etablissementId: '1' }
+      { etablissementId: '1', date: new Date ('2000-01-01') },
+      { etablissementId: '1', date: new Date ('2000-01-02') },
+      { etablissementId: '1', date: new Date ('2000-01-03') },
+      { etablissementId: '1', date: new Date ('2000-01-04') }
     ]);
   }
 

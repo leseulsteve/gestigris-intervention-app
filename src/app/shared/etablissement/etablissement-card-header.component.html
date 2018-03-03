@@ -1,0 +1,10 @@
+<div>
+    <img src="http://content.stamen.com/files/just_the_streets/soho_lines.jpg" />
+    <div class="card-title">{{ etablissement.description }}</div>
+    <!-- <div class="card-subtitle">{{ (etablissement.interventions$ | async).length }}</div> -->
+    <div>
+        <ion-badge *ngFor="let tag of etablissement.tags">
+            {{ tag }}
+        </ion-badge>
+    </div>
+</div>
