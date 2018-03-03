@@ -20,6 +20,12 @@ export class EtablissementService {
       description: 'École secondaire de Neufchâtel',
       tags: ['Secondaire', 'Hotdog'],
       interventions$: this.getInterventions('1'),
+    },
+    {
+      _id: '2', 
+      description: 'Collège Champigny',
+      tags: ['Secondaire', 'Lasagne'],
+      interventions$: this.getInterventions('1'),
     }]);
   }
 
