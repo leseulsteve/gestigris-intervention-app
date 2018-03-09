@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
+import { FlexLayoutModule} from '@angular/flex-layout';
 
 import { EtablissementModule } from '../etablissement/etablissement.module';
 
@@ -11,6 +12,7 @@ import { PlageInterventionCardComponent } from './plage-intervention-card.compon
   imports: [
     CommonModule,
     IonicModule,
+    FlexLayoutModule,
     EtablissementModule
   ],
   declarations: [ PlageInterventionCardComponent],

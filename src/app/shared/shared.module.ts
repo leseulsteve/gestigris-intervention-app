@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
+import { FlexLayoutModule} from '@angular/flex-layout';
 
 import { LoaderComponent } from './loader/loader.component';
 
@@ -12,7 +13,8 @@ import { InterventionModule } from './intervention/intervention.module';
     IonicModule,
     CommonModule,
     EtablissementModule,
-    InterventionModule
+    InterventionModule,
+    FlexLayoutModule
   ],
   declarations: [
     LoaderComponent
@@ -20,7 +22,8 @@ import { InterventionModule } from './intervention/intervention.module';
   exports: [
     LoaderComponent,
     EtablissementModule,
-    InterventionModule
+    InterventionModule,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }

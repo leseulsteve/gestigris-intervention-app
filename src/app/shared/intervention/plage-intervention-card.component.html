@@ -1,6 +1,9 @@
 <ion-card>
   <app-etablissement-card-header [etablissement]="plageIntervention.etablissement"></app-etablissement-card-header>
   <ion-list>
+    <div fxLayoutAlign="center center">
+      <ion-icon name="arrow-up"></ion-icon>
+    </div>
     <ion-item-sliding *ngFor="let intervention of plageIntervention.interventions">
       <ion-item>
         <ion-icon [name]="getInterventionStatusIcon((intervention.status$ | async))"></ion-icon>
@@ -15,5 +18,8 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
+    <div fxLayoutAlign="center center">
+      <ion-icon name="arrow-down"></ion-icon>
+    </div>
   </ion-list>
 </ion-card>

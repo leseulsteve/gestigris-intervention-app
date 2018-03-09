@@ -9,5 +9,21 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <app-plage-intervention-card *ngFor="let plageIntervention of plageIntervention$ | async" [plageIntervention]="plageIntervention"></app-plage-intervention-card>
+  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(false)" (throwoutright)="voteUp(true)" id="card-stack">
+    <div #mycards1 swing-card *ngFor="let plageIntervention of plageIntervention$ | async" style="z-index:20">
+      <app-plage-intervention-card   [plageIntervention]="plageIntervention"></app-plage-intervention-card>
+    </div>
+  </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <button ion-button icon-only>
+        <ion-icon name="thumbs-down"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="thumbs-up"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
