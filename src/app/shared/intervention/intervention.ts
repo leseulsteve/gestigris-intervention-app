@@ -1,4 +1,5 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Etablissement } from '@app/shared/etablissement';
 
 enum InterventionStatus {
   Open = 0,
@@ -7,10 +8,11 @@ enum InterventionStatus {
   Denied = 3
 }
 
- class Intervention {_id: string;
-  etablissementId: string;
+class Intervention {
+  _id: string;
+  etablissement: Etablissement;
   date: Date;
-  status: BehaviorSubject<InterventionStatus>;
+  status$: BehaviorSubject<InterventionStatus>;
 }
 
-export {Intervention,InterventionStatus }
+export { Intervention, InterventionStatus };
