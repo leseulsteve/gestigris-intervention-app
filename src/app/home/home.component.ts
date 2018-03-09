@@ -7,11 +7,11 @@ import { merge } from 'rxjs/observable/merge';
 import { empty } from 'rxjs/observable/empty';
 
 import 'rxjs/add/operator/mergeMap';
-import { flatten } from 'lodash';
+
+import { flatten, compact } from 'lodash';
 
 import { InterventionService, Intervention, PlageIntervention, InterventionStatus } from '@app/shared/intervention';
 import { Etablissement } from '@app/shared/etablissement';
-
 
 @Component({
   selector: 'app-home',
@@ -37,10 +37,8 @@ export class HomeComponent implements OnInit {
                 return plage;
               }
             });
-        }));
-
+        }))
+          .map(interventions => compact(interventions));
       });
-
   }
-
 }
