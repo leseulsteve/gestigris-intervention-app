@@ -6,14 +6,20 @@ import { EtablissementModule } from '../etablissement/etablissement.module';
 
 import { InterventionService } from './intervention.service';
 import { PlageInterventionCardComponent } from './plage-intervention-card.component';
+import { InterventionRoutingModule } from './intervention-routing.module';
+import { InterventionSectionComponent } from './intervention-section.component';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    EtablissementModule
+    EtablissementModule,
+    InterventionRoutingModule
   ],
-  declarations: [ PlageInterventionCardComponent],
+  declarations: [
+    PlageInterventionCardComponent,
+    InterventionSectionComponent
+  ],
   providers: [ InterventionService],
   exports: [ PlageInterventionCardComponent]
 })

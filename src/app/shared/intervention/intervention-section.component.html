@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span translate>Interventions</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <app-plage-intervention-card *ngFor="let plageIntervention of plageIntervention$ | async" [plageIntervention]="plageIntervention"></app-plage-intervention-card>
+</ion-content>
