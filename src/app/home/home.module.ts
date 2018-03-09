@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from 'ionic-angular';
+import { SwingModule } from 'angular2-swing';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
@@ -15,7 +16,8 @@ import { HomeComponent } from './home.component';
     CoreModule,
     SharedModule,
     IonicModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SwingModule
   ],
   entryComponents: [
     HomeComponent

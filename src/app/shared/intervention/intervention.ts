@@ -6,6 +6,7 @@ enum InterventionStatus {
   Pending = 1,
   Confirmed = 2,
   Denied = 3
+  // CLOSED
 }
 
 class Intervention {

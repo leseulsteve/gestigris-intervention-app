@@ -13,6 +13,11 @@ const etablissements = [{
   _id: '2',
   description: 'Collège Champigny',
   tags: ['Secondaire', 'Lasagne']
+},
+{
+  _id: '3',
+  description: 'Rochebelle',
+  tags: ['L\'école', 'du', 'démon']
 }];
 
 @Injectable()
