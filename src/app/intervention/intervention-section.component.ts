@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { InterventionService, PlageIntervention } from './intervention.service';
-import { Intervention } from './intervention';
+import { PlageIntervention, PlageInterventionService } from './plage-intervention.service';
 
 @Component({
   selector: 'app-intervention-section',
@@ -13,10 +12,10 @@ export class InterventionSectionComponent implements OnInit {
 
   plagesInterventions$: Observable<PlageIntervention[]>;
 
-  constructor(private interventionService: InterventionService) { }
+  constructor(private plageInterventionService: PlageInterventionService) { }
 
   ngOnInit() {
-    this.plagesInterventions$ = this.interventionService.plagesInterventions$;
+    this.plagesInterventions$ = this.plageInterventionService.plagesInterventions$;
   }
 
 }

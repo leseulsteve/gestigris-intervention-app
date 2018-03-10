@@ -1,9 +1,17 @@
-.logo {
-  width: 150px;
-  margin: 0 auto;
+#card-stack {
+  width: 90%;
+  background: #047915;
+  border: 10px solid #4cb338;
+  margin: 100px auto 0;
+  position: relative;
+
+
+swing-card {
+  border-radius: 5px;
+  position: absolute;
+  text-align: center;
+  top: 3%;
+  color:red;
 }
 
-q {
-  font-style: italic;
-  quotes: "« " " »";
 }

@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { Etablissement } from '@app/shared/etablissement';
+import { Etablissement } from '@app/etablissement';
 import { InterventionStatus, Intervention } from './intervention';
-import { PlageIntervention } from './intervention.service';
+import { PlageIntervention } from './plage-intervention.service';
 
 @Component({
   selector: 'app-plage-intervention-card',

@@ -15,22 +15,27 @@ import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
+import { EtablissementModule } from '@app/etablissement';
+import { InterventionModule } from '@app/intervention';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     FormsModule,
     HttpModule,
     TranslateModule.forRoot(),
-    IonicModule.forRoot(AppComponent, {locationStrategy: 'path'}),
+    IonicModule.forRoot(AppComponent, { locationStrategy: 'path' }),
     CoreModule,
     SharedModule,
     HomeModule,
     AboutModule,
     LoginModule,
+    EtablissementModule,
+    InterventionModule,
     AppRoutingModule
   ],
   declarations: [AppComponent],

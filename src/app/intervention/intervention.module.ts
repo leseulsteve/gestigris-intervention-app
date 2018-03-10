@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from 'ionic-angular';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { EtablissementModule } from '../etablissement/etablissement.module';
+import { SharedModule } from '@app/shared';
+
+import { EtablissementModule } from '@app/etablissement';
 
 import { InterventionService } from './intervention.service';
+import { PlageInterventionService } from './plage-intervention.service';
+
 import { PlageInterventionCardComponent } from './plage-intervention-card.component';
 import { InterventionRoutingModule } from './intervention-routing.module';
 import { InterventionSectionComponent } from './intervention-section.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    IonicModule,
+    SharedModule,
     EtablissementModule,
     InterventionRoutingModule
   ],
@@ -21,7 +21,7 @@ import { InterventionSectionComponent } from './intervention-section.component';
     PlageInterventionCardComponent,
     InterventionSectionComponent
   ],
-  providers: [ InterventionService],
+  providers: [ InterventionService, PlageInterventionService],
   exports: [ PlageInterventionCardComponent]
 })
 export class InterventionModule { }

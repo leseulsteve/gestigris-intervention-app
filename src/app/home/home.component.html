@@ -9,19 +9,31 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(false)" (throwoutright)="voteUp(true)" id="card-stack">
-    <div #mycards1 swing-card *ngFor="let plageIntervention of plageIntervention$ | async" style="z-index:20">
-      <app-plage-intervention-card   [plageIntervention]="plageIntervention"></app-plage-intervention-card>
+
+  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="accept$.next(cardActions.RefuseAll)" (throwoutright)="accept$.next(cardActions.AcceptAll)"
+    id="card-stack" *ngIf="plagesIntervention.length; else noMorePlages">
+    <div #mycards1 swing-card *ngFor="let plageIntervention of plagesIntervention" style="z-index:20">
+      <app-plage-intervention-card [plageIntervention]="plageIntervention"></app-plage-intervention-card>
     </div>
   </div>
+
+  <ng-template #noMorePlages>
+    Plus rien!
+  </ng-template>
+
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="plagesIntervention.length">
   <ion-toolbar>
     <ion-buttons>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="accept$.next(cardActions.RefuseAll)">
         <ion-icon name="thumbs-down"></ion-icon>
       </button>
-      <button ion-button icon-only>
+      <div fxFlex></div>
+      <button ion-button icon-only (click)="accept$.next(cardActions.DismissAll)">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+      <div fxFlex></div>
+      <button ion-button icon-only (click)="accept$.next(cardActions.AcceptAll)">
         <ion-icon name="thumbs-up"></ion-icon>
       </button>
     </ion-buttons>

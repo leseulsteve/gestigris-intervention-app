@@ -1,21 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from 'ionic-angular';
+import { SharedModule } from '@app/shared';
 
 import { EtablissementCardHeaderComponent } from './etablissement-card-header.component';
 import { EtablissementService } from './etablissement.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    IonicModule
-  ],
-  declarations: [
-    EtablissementCardHeaderComponent
-  ],
+  imports: [SharedModule],
+  declarations: [EtablissementCardHeaderComponent],
   providers: [ EtablissementService],
-  exports: [
-    EtablissementCardHeaderComponent
-  ]
+  exports: [EtablissementCardHeaderComponent]
 })
 export class EtablissementModule { }
