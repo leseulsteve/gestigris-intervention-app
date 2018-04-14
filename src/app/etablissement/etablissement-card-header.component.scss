@@ -1,14 +1,25 @@
-// .card-title {
-//     position: absolute;
-//     top: 36%;
-//     font-size: 2.0em;
-//     width: 100%;
-//     font-weight: bold;
-//   }
+ :host{
+  position: relative;
+
+  .card-title-row {
+
+    position: absolute;
+    top: 8px;
+    left: 16px;
+
+    .card-title {
+      color: white;
+      font-size: 20px;
+    }
   
-//   .card-subtitle {
-//     font-size: 3.0em;
-//     position: absolute;
-//     top: 52%;
-//     width: 100%;
-//   }
+    ion-icon {
+      padding-left: 0px;
+    &:before {
+        font-size: 36px;
+      }
+    }
+  }
+ 
+
+  
+ } 

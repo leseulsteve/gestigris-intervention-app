@@ -2,11 +2,15 @@
   <ion-menu [content]="content">
     <ion-content>
       <div ion-fixed>
-        <div class="profile" text-center padding>
-          <ion-icon class="profile-icon" name="contact"></ion-icon>
+        <div class="profile" padding fxLayout="row" fxLayoutAlign="start center">
+          <img margin-right class="profile-image" src="https://robohash.org/{{firstname}}" />
+          <div fxFlex fxLayout="column" class="username">
+            <div style="font-size:20px">{{ firstname }}</div>
+            <div style="font-size:14px">{{ lastname }}</div>
+          </div>
           <div>
-            <button class="profile-button" ion-button color="light" (click)="showProfileActions()" round outline small icon-start>
-              <ion-icon name="person"></ion-icon> {{username}}
+            <button icon-start ion-button icon-only clear round medium class="profile-button" color="light">
+              <ion-icon name="cog"></ion-icon>
             </button>
           </div>
         </div>
@@ -16,6 +20,11 @@
           </button>
           <button menuClose ion-item routerLink="/interventions" routerLinkActive="active">
             <span translate>Interventions</span>
+          </button>
+          <button menuClose ion-item routerLink="/discussions" routerLinkActive="active">
+            <span translate>Discussions</span>
+            <span fxFlex></span>
+            <ion-badge>14</ion-badge>
           </button>
           <button menuClose ion-item routerLink="/about" routerLinkActive="active">
             <span translate>About</span>

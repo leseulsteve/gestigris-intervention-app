@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
 
 import { PlageIntervention, PlageInterventionService } from './plage-intervention.service';
@@ -16,6 +17,11 @@ export class InterventionSectionComponent implements OnInit {
 
   ngOnInit() {
     this.plagesInterventions$ = this.plageInterventionService.plagesInterventions$;
+    /*  .mergeMap(plages =>
+        combineLatest(plages.map(plage => plage.etablissement.coordinates.distance$
+          .map(distance => assign(plage, { distance: distance })))))
+      .map(plages => sortBy(plages, plage => plage.distance));*/
+
   }
 
 }

@@ -1,25 +1,18 @@
 <ion-card>
   <app-etablissement-card-header [etablissement]="plageIntervention.etablissement"></app-etablissement-card-header>
   <ion-list>
-    <div fxLayoutAlign="center center">
+    <!-- <div fxLayoutAlign="center center">
       <ion-icon name="arrow-up"></ion-icon>
-    </div>
-    <ion-item-sliding *ngFor="let intervention of plageIntervention.interventions">
-      <ion-item>
-        <ion-icon [name]="getInterventionStatusIcon((intervention.status$ | async))"></ion-icon>
-        <span>{{ intervention.date | date:'medium' }} </span>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="primary" (click)="likeIntervention(intervention)">
-          <ion-icon name="heart"></ion-icon>
-        </button>
-        <button ion-button color="primary">
-          <ion-icon name="close-circle"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <div fxLayoutAlign="center center">
+    </div>-->
+    <ion-item *ngFor="let intervention of plageIntervention.interventions">
+      <button ion-button round clear item-start color="primary" (click)="likeIntervention(intervention)">
+        <ion-icon [name]="(getIsLiked(intervention) | async) ? 'heart' : 'heart-outline'" clear round></ion-icon>
+      </button>
+      <span fxFlex>{{ intervention.date | date:'medium' }} </span>
+      <ion-badge color="secondary" item-end>{{ getStatusLabel(intervention) | async }}</ion-badge>
+    </ion-item>
+    <!-- <div fxLayoutAlign="center center">
       <ion-icon name="arrow-down"></ion-icon>
-    </div>
+    </div>-->
   </ion-list>
 </ion-card>

@@ -9,18 +9,18 @@
   background: color($colors, primary);
 }
 
-.profile-icon {
-  font-size: 6rem;
-  color: color-contrast($colors, primary);
+.profile-image {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: color-contrast($colors, primary);
 
-  // Use parent class from outside component context
-  // See https://angular.io/guide/component-styles#host-context
-  :host-context(.platform-ios) & {
-    padding-top: $cordova-ios-statusbar-padding;
-  }
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
-.profile-button {
-  border-color: color-contrast($colors, primary);
+.username {
   color: color-contrast($colors, primary);
 }

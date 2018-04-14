@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title translate>Discussions</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+    <ng-container *ngFor="let discussionsType of discussionsTypes$ | async">
+      <ion-list-header>{{ getDiscutionTypeTitle(discussionsType) }}</ion-list-header>
+      <ion-item *ngFor="let discussion of (discussions$ | async).get(discussionsType)">
+        <ion-avatar item-start>
+          <img src="https://robohash.org/abc">
+        </ion-avatar>
+        <h2>{{ discussion.title }}</h2>
+        <h3 *ngIf="discussion.subTitle">{{ discussion.subTitle }}</h3>
+        <p [innerHTML]="(discussion.messages$ | async)[0].content"></p>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+</ion-content>

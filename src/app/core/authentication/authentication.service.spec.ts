@@ -1,6 +1,6 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 
-import { AuthenticationService, Credentials} from './authentication.service';
+import { AuthenticationService, Credentials } from './authentication.service';
 
 const credentialsKey = 'credentials';
 
@@ -30,7 +30,9 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        password: '123',
+        firstname: 'Qqqun',
+        lastname: 'Qqpart'
       });
       tick();
 
@@ -47,7 +49,9 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        password: '123',
+        firstname: 'Qqqun',
+        lastname: 'Qqpart'
       });
       tick();
 

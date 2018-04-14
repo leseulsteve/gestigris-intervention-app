@@ -1,11 +1,19 @@
 <div>
-    <img src="http://content.stamen.com/files/just_the_streets/soho_lines.jpg" />
-    <ion-icon name="star"></ion-icon>
-    <div class="card-title">{{ etablissement.description }}</div>
-    <!-- <div class="card-subtitle">{{ (etablissement.interventions$ | async).length }}</div> -->
-    <div>
-        <ion-badge *ngFor="let tag of etablissement.tags">
-            {{ tag }}
-        </ion-badge>
+    <!-- <div style="height: 200px" #map id="map"></div>-->
+    <img *ngIf="mapImage" [src]="mapImage" />
+    <div fxLayout="column" class="card-title-row">
+        <div fxLayout="row">
+            <button ion-button icon-only clear round (click)="etablissement.favorited$.next(!favorited)">
+                <ion-icon [name]="favorited ? 'star' : 'star-outline'"></ion-icon>
+            </button>
+            <div fxFlex class="card-title">{{ etablissement.description }}</div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <ion-badge *ngFor="let tag of etablissement.tags">
+                {{ tag }}
+            </ion-badge>
+        </div>
     </div>
+    <!-- <div class="card-subtitle">{{ (etablissement.interventions$ | async).length }}</div> -->
+
 </div>

@@ -34,35 +34,14 @@ export class ShellComponent implements OnInit {
       .subscribe(() => this.updateNav(this.activatedRoute));
   }
 
-  showProfileActions() {
-    const actionSheetOptions: ActionSheetOptions = { title: this.username || undefined };
-    const actionSheet = this.actionSheetController.create(actionSheetOptions);
-    const buttons: ActionSheetButton[] = [
-      {
-        text: this.translateService.instant('Logout'),
-        icon: this.platform.is('ios') ? undefined : 'log-out',
-        role: 'destructive',
-        handler: () => this.logout()
-      },
-      {
-        text: this.translateService.instant('Cancel'),
-        icon: this.platform.is('ios') ? undefined : 'close',
-        role: 'cancel'
-      }
-    ];
-
-    // On Cordova platform language is set to the device language
-    if (this.platform.is('cordova')) {
-      buttons.splice(1, 1);
-    }
-
-    buttons.forEach(button => actionSheet.addButton(button));
-    actionSheet.present();
+  get firstname(): string | null {
+    const credentials = this.authenticationService.credentials;
+    return credentials ? credentials.firstname : null;
   }
 
-  get username(): string | null {
+  get lastname(): string | null {
     const credentials = this.authenticationService.credentials;
-    return credentials ? credentials.username : null;
+    return credentials ? credentials.lastname : null;
   }
 
   private logout() {

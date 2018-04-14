@@ -5,7 +5,7 @@ import { combineLatest } from 'rxjs/observable/combineLatest';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-import { chain, compact } from 'lodash';
+import { chain, compact, includes } from 'lodash';
 import * as moment from 'moment';
 
 import { Etablissement } from '@app/etablissement';
@@ -35,12 +35,7 @@ export class PlageInterventionService {
 
     this.showcasedPlagesInterventions$ = this.plagesInterventions$
       .map(plages => this.splitPlagesByDay(plages))
-      .mergeMap(plages => combineLatest(plages
-        .map(plage => combineLatest(plage.interventions.map(intervention => intervention.status$))
-          .map(interventionsStatuses =>
-            interventionsStatuses.filter(status => status === InterventionStatus.Open).length > 0)
-          .map(hasOpenStatus => { if (hasOpenStatus) { return plage; } }))))
-      .map(compact);
+      .mergeMap(plages => this.filterByStatus(plages, [InterventionStatus.Open]));
   }
 
   private splitPlagesByDay(plages: PlageIntervention[]): PlageIntervention[] {
@@ -55,6 +50,15 @@ export class PlageInterventionService {
         .value())
       .flatten()
       .value();
+  }
+
+  filterByStatus(plages: PlageIntervention[], statuses: InterventionStatus[]): Observable<PlageIntervention[]> {
+    return combineLatest(plages
+      .map(plage => combineLatest(plage.interventions.map(intervention => intervention.status$))
+        .map(interventionsStatuses =>
+          interventionsStatuses.filter(status => includes(statuses, status)))
+        .map(correspondingStatus => { if (correspondingStatus.length) { return plage; } })))
+      .map(compact);
   }
 
   accept(accept: boolean, plageIntervention: PlageIntervention) {

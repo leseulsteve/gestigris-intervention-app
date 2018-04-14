@@ -3,11 +3,32 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>
-      <span translate>Interventions</span>
-    </ion-title>
+    <ion-title translate>Interventions</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="heart-outline"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <ion-segment>
+    <ion-segment-button value="kittens">
+      <ion-icon name="flame"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="kittens">
+      <ion-icon name="quote"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="kittens">
+      <ion-icon name="calendar"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="puppies">
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="pref">
+      <ion-icon name="star"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 <ion-content>
-  <app-plage-intervention-card *ngFor="let plageIntervention of plageIntervention$ | async" [plageIntervention]="plageIntervention"></app-plage-intervention-card>
+
+  <app-plage-intervention-card *ngFor="let plageIntervention of plagesInterventions$ | async" [plageIntervention]="plageIntervention"></app-plage-intervention-card>
 </ion-content>
