@@ -36,7 +36,8 @@
                 <ion-checkbox formControlName="remember"></ion-checkbox>
               </ion-item>
             </ion-list>
-            <div padding-horizontal>
+            <div padding-horizontal>              
+              <button type="button" (click)="loginGoogle()">Login with Google</button>
               <button type="submit" [disabled]="loginForm.invalid" ion-button color="primary" block>
                 <span translate>Login</span>
               </button>

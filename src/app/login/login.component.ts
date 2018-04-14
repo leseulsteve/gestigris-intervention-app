@@ -7,6 +7,9 @@ import { finalize } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { Logger, AuthenticationService } from '@app/core';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
 const log = new Logger('Login');
 
 @Component({
@@ -23,7 +26,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
     private formBuilder: FormBuilder,
     private loadingController: LoadingController,
-    private authenticationService: AuthenticationService) {
+    private authenticationService: AuthenticationService,
+    public afAuth: AngularFireAuth) {
     this.createForm();
   }
 
@@ -54,4 +58,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  loginGoogle() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
 }
