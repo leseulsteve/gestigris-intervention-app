@@ -10,5 +10,13 @@ export const environment = {
   defaultLanguage: 'en-CA',
   supportedLanguages: [
     'fr-CA'
-  ]
+  ],
+  firebase: {
+    apiKey: "AIzaSyBoHbDNYFZlUgHuq7-jHYtykBzWZ1458cE",
+    authDomain: "gestigris-c51b6.firebaseapp.com",
+    databaseURL: "https://gestigris-c51b6.firebaseio.com",
+    projectId: "gestigris-c51b6",
+    storageBucket: "gestigris-c51b6.appspot.com",
+    messagingSenderId: "260479479654"
+  }
 };

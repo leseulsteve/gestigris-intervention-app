@@ -1,1 +1,7 @@
-<ion-nav root=""></ion-nav>
+<ion-nav root="">
+    <ul>
+        <li class="text" *ngFor="let item of items | async">
+          {{item.name}}
+        </li>
+    </ul>
+</ion-nav>

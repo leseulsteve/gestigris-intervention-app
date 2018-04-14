@@ -24,9 +24,13 @@ import { DiscussionModule } from '@app/discussion';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestore } from 'angularfire2/firestore';
+
 @NgModule({
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     FormsModule,
     HttpModule,
@@ -48,9 +52,13 @@ import { AppRoutingModule } from './app-routing.module';
     Keyboard,
     StatusBar,
     SplashScreen,
+    AngularFirestore,
     Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
-  bootstrap: [IonicApp]
+  bootstrap: [
+    IonicApp,
+    AppComponent 
+  ]
 })
 export class AppModule { }
