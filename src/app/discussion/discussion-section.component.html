@@ -16,7 +16,7 @@
   <ion-list>
     <ng-container *ngFor="let discussionsType of discussionsTypes$ | async">
       <ion-list-header>{{ getDiscutionTypeTitle(discussionsType) }}</ion-list-header>
-      <ion-item *ngFor="let discussion of (discussions$ | async).get(discussionsType)">
+      <ion-item [routerLink]="['/discussion', discussion._id]" *ngFor="let discussion of (discussions$ | async).get(discussionsType)">
         <ion-avatar item-start>
           <img src="https://robohash.org/abc">
         </ion-avatar>

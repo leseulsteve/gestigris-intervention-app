@@ -60,7 +60,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   ],
   bootstrap: [
     IonicApp,
-    AppComponent 
+    AppComponent
   ]
 })
 export class AppModule { }

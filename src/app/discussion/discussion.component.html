@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title translate>{{ (discussion$ | async).title }}
+      <small *ngIf="(discussion$ | async).subTitle"> - {{ (discussion$ | async).subTitle }}</small>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="message-wrap" *ngIf="discussion$ | async as discussion">
+    <div *ngFor="let message of discussion.messages$ | async" class="message" [class.left]=" message.author._id !== currentUser._id"
+      [class.right]="message.author._id === currentUser._id">
+      <ion-avatar item-start>
+        <img [src]="message.author.avatar">
+      </ion-avatar>
+      <div class="msg-detail">
+        <div class="msg-info">
+          <p>{{ message.author.username }}&nbsp;&nbsp;&nbsp;{{ message.date | relativeTime | async }}</p>
+        </div>
+        <div class="msg-content">
+          <span class="triangle"></span>
+          <p class="line-breaker" [innerHTML]="message.content"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <div class="input-wrap">
+    <ion-avatar item-start style="width:45px;">
+      <img [src]="newMessage.author.avatar">
+    </ion-avatar>
+    <textarea #messageInput [(ngModel)]="newMessage.content" (keyup.enter)="sendMsg()" (focusin)="onFocus()">
+    </textarea>
+    <button ion-button clear icon-only item-right (click)="sendMsg()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </div>
+</ion-footer>
